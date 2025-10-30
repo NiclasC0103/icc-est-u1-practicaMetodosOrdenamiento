@@ -1,9 +1,12 @@
 public class SortInsercion {
+    int comparaciones = 0;
+    int cambios = 0;
+
     public SortInsercion(){
-        System.out.println("Se creó mi clase SortInsercion\n");
+        //System.out.println("Se creó mi clase SortInsercion\n");
     }
 
-    public void sortAscendente(int[] numeros, boolean pasos){
+    public void sortInsertion(int[] numeros, boolean ascendente, boolean pasos){
         int aux, j;
         int len = numeros.length;
         for(int i=1; i<len; i++)
@@ -13,12 +16,14 @@ public class SortInsercion {
             if (pasos){
                 System.out.println("i: " + i + ", j: " + j + ", aux: "+ aux);
             }
-            while(j>=0 && aux<numeros[j])
+            while(j>=0 && ((ascendente && aux < numeros[j]) || (!ascendente && aux > numeros[j])))
             {
+                comparaciones++;
                 if (pasos)
                     System.out.println("Compara aux: " + aux + " con numeros["+ j +"]: " + numeros[j]);
 
                 numeros[j+1]=numeros[j];
+                cambios++;
                 if (pasos)
                     printArray(numeros);
                 j--;
@@ -27,7 +32,7 @@ public class SortInsercion {
             }
             numeros[j+1]=aux;
             if (pasos){
-                System.out.println("Inserta aux: "+ aux + "en la posicion " + (j+1));
+                System.out.println("Inserta aux: "+ aux + " en la posicion " + (j+1));
                 System.out.println("Estado actual");
                 printArray(numeros);
             }

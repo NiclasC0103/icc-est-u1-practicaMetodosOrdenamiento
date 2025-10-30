@@ -5,6 +5,7 @@ public class View {
     int metSelec;
     int ascDes;
     int sn;
+    int st;
     public View(){
         System.out.println("****BIENVENIDO AL SELECTOR DE METODOS DE ORDENAMIENTO****");
         scanner = new Scanner(System.in);
@@ -44,6 +45,23 @@ public class View {
         }
 
     }
+
+    public void steps(){
+        System.out.println("Desea Visualizar los pasos del ordenamiento?");
+        System.out.println("1. SI");
+        System.out.println("2. NO");
+        System.out.print("Respuesta: ");
+        st=scanner.nextInt();
+        while (st<1 || st>2) { 
+            System.err.println("Se ingresó un número invalido - Ingrese Nuevamente");
+            System.out.println("Desea Visualizar los pasos del ordenamiento?");
+            System.out.println("1. SI");
+            System.out.println("2. NO");
+            System.out.print("Respuesta: ");
+            st=scanner.nextInt();
+        }
+    }
+
     public void restart(){
         System.out.println("Desea Regresar al Menú?");
         System.out.println("1. SI");
